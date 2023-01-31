@@ -222,7 +222,7 @@ const editBookHandler = (request, h) => {
 
   const response = h.response({
     status: 'fail',
-    message: 'Buku tidak ditemukan',
+    message: 'Gagal memperbarui buku. Id tidak ditemukan',
   })
   response.header('Access-Control-Allow-Origin', '*')
   response.code(404)

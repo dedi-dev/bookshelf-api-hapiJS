@@ -22,7 +22,6 @@ const addBookHandler = (request, h) => {
       status: 'fail',
       message: 'Gagal menambahkan buku. Mohon isi nama buku',
     });
-    response.header('Access-Control-Allow-Origin', '*');
     response.code(400);
     return response;
   }
@@ -33,7 +32,6 @@ const addBookHandler = (request, h) => {
       message:
         'Gagal menambahkan buku. readPage tidak boleh lebih besar dari pageCount',
     });
-    response.header('Access-Control-Allow-Origin', '*');
     response.code(400);
     return response;
   }
@@ -65,7 +63,6 @@ const addBookHandler = (request, h) => {
         bookId: id,
       },
     });
-    response.header('Access-Control-Allow-Origin', '*');
     response.code(201);
     return response;
   }
@@ -74,14 +71,12 @@ const addBookHandler = (request, h) => {
     status: 'error',
     message: 'Buku gagal ditambahkan',
   });
-  response.header('Access-Control-Allow-Origin', '*');
   response.code(500);
   return response;
 };
 
 const getBooksHandler = (request, h) => {
   const { name, reading, finished } = request.query;
-  console.log(request.query);
   let booksFilter = books;
 
   if (name) {
@@ -110,8 +105,6 @@ const getBooksHandler = (request, h) => {
     break;
   }
 
-  console.log(booksFilter);
-
   const booksResponse = booksFilter.map((book) => {
     return {
       id: book.id,
@@ -126,7 +119,6 @@ const getBooksHandler = (request, h) => {
       books: booksResponse,
     },
   });
-  response.header('Access-Control-Allow-Origin', '*');
   response.code(200);
   return response;
 };
@@ -143,7 +135,6 @@ const getBookByIdHandler = (request, h) => {
         book: book,
       },
     });
-    response.header('Access-Control-Allow-Origin', '*');
     response.code(200);
     return response;
   }
@@ -152,7 +143,6 @@ const getBookByIdHandler = (request, h) => {
     status: 'fail',
     message: 'Buku tidak ditemukan',
   });
-  response.header('Access-Control-Allow-Origin', '*');
   response.code(404);
   return response;
 };
@@ -175,7 +165,6 @@ const editBookHandler = (request, h) => {
       status: 'fail',
       message: 'Gagal memperbarui buku. Mohon isi nama buku',
     });
-    response.header('Access-Control-Allow-Origin', '*');
     response.code(400);
     return response;
   }
@@ -186,7 +175,6 @@ const editBookHandler = (request, h) => {
       message:
         'Gagal memperbarui buku. readPage tidak boleh lebih besar dari pageCount',
     });
-    response.header('Access-Control-Allow-Origin', '*');
     response.code(400);
     return response;
   }
@@ -215,7 +203,6 @@ const editBookHandler = (request, h) => {
       status: 'success',
       message: 'Buku berhasil diperbarui',
     });
-    response.header('Access-Control-Allow-Origin', '*');
     response.code(200);
     return response;
   }
@@ -224,7 +211,6 @@ const editBookHandler = (request, h) => {
     status: 'fail',
     message: 'Gagal memperbarui buku. Id tidak ditemukan',
   });
-  response.header('Access-Control-Allow-Origin', '*');
   response.code(404);
   return response;
 };
@@ -241,7 +227,6 @@ const deleteBookByIdHandler = (request, h) => {
       status: 'success',
       message: 'Buku berhasil dihapus',
     });
-    response.header('Access-Control-Allow-Origin', '*');
     response.code(200);
     return response;
   }
@@ -250,7 +235,6 @@ const deleteBookByIdHandler = (request, h) => {
     status: 'fail',
     message: 'Buku gagal dihapus. Id tidak ditemukan',
   });
-  response.header('Access-Control-Allow-Origin', '*');
   response.code(404);
   return response;
 };

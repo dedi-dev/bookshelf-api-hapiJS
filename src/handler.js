@@ -126,7 +126,7 @@ const getBooksHandler = (request, h) => {
 const getBookByIdHandler = (request, h) => {
   const { id } = request.params;
 
-  const book = books.filter((n) => n.id === id)[0];
+  const book = books.find((n) => n.id === id);
 
   if (book) {
     const response = h.response({

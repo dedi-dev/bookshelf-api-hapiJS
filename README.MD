@@ -6,7 +6,7 @@ A simple CRUD API Book for completing task in Dicoding.
 
 Before running this project, make sure you have the following installed:
 
-- [Node.js](https://nodejs.org/) (v18.13.0+)
+- [Node.js](https://nodejs.org/) (v22.0.0)
 - [npm](https://www.npmjs.com/) (or `yarn` if you prefer)
 
 ## Installation
